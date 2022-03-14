@@ -86,7 +86,7 @@ function TaskComponent() {
   return (
     <div className={classes.majorContainer}>
       <div className={classes.contentHeader}>
-        <h3>{user.name}'s Todo List</h3>
+        <h2>{user.name}'s Todo List</h2>
         <button className={classes.logoutButton} onClick={() => logOut()}>
           Logout
         </button>

@@ -37,7 +37,7 @@ function SignupComponent() {
     <div>
       <div className={classes.majorContainer}>
         <div className={classes.formStyle}>
-          <h5>Todo List Signup</h5>
+          <h1>Todo List Signup</h1>
           <form
             onSubmit={(e) => {
               e.preventDefault();

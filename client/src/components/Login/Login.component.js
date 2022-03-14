@@ -35,7 +35,7 @@ function LoginComponent() {
   return (
     <div className={classes.majorContainer}>
       <div className={classes.formStyle}>
-        <h5>Todo List Login</h5>
+        <h1>Todo List Login</h1>
         <form
           onSubmit={(e) => {
             e.preventDefault();
