@@ -1,0 +1,87 @@
+.majorContainer{
+    margin: 0px auto;
+    width: 900px;
+    /* background-color: rgb(183, 220, 255); */
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0 3%;
+}
+.contentHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 3px;
+}
+.contentHeader h1{
+    margin: 0px;
+}
+
+.content{
+    width:100%;
+    margin-bottom: 20px;
+}
+.input{
+    background-color: white;
+    height:55px;
+    width:80%;
+    border:none;
+    border-radius: 10px;
+    padding: 0px 10px;
+}
+.button{
+    background-color: rgb(255, 217, 0);
+    height:55px;
+    padding: 0px 17px;
+    cursor: pointer;
+    border:none;
+    border-radius: 10px;
+    margin-left:10px;
+    width: 100px;
+}
+.logoutButton{
+    background-color: rgba(255, 85, 85, 0.623);
+    height:55px;
+    padding: 0px 17px;
+    cursor: pointer;
+    border:none;
+    border-radius: 10px;
+    margin-left:10px;
+    width: 100px;
+}
+.markButton{
+    background-color: rgb(60, 187, 56);
+    height:25px;
+    padding: 0px 17px;
+    cursor: pointer;
+    border:none;
+    border-radius: 10px;
+    margin-left:10px;
+    width: 100px;
+}
+.deleteButton{
+    background-color: rgb(255, 85, 85);
+    height:25px;
+    padding: 0px 17px;
+    cursor: pointer;
+    border:none;
+    border-radius: 10px;
+    margin-left:10px;
+}
+.tasks{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.589);
+    box-sizing: border-box;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width:600px){
+    .majorContainer{
+        width:100%;
+    }
+}
