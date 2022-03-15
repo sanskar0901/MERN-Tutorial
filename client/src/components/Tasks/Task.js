@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Task.module.css";
 import axios from "axios";
-
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "../../state";
 
 function TaskComponent() {
   const state = useSelector((state) => state);
-
   const [user, setUser] = useState("");
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
@@ -27,7 +25,7 @@ function TaskComponent() {
   useEffect(() => {
     if (user !== "") {
       console.log(user);
-      axios.get(`http://localhost:5000/task/${user.userId}`).then((res) => {
+      axios.get(` https://to69do.herokuapp.com/task/${user.userId}`).then((res) => {
         console.log(res);
         const data = res.data[0].task;
         updateTask(data);
@@ -46,8 +44,7 @@ function TaskComponent() {
         task: newTask,
       };
 
-      axios.post("http://localhost:5000/task/add", reqBody).then((res) => {
-        //   console.log(res.data[0].task)
+      axios.post(" https://to69do.herokuapp.com/task/add", reqBody).then((res) => {
         const data = res.data[0].task;
         updateTask(data);
       });
@@ -61,7 +58,7 @@ function TaskComponent() {
       method: "update",
     };
 
-    axios.post("http://localhost:5000/task/edit", reqBody).then((res) => {
+    axios.post(" https://to69do.herokuapp.com/task/edit", reqBody).then((res) => {
       //   console.log(res.data[0].task)
       const data = res.data[0].task;
       updateTask(data);
@@ -76,8 +73,7 @@ function TaskComponent() {
     };
 
 
-    axios.post("http://localhost:5000/task/edit", reqBody).then((res) => {
-      //   console.log(res.data[0].task)
+    axios.post(" https://to69do.herokuapp.com/task/edit", reqBody).then((res) => {
       const data = res.data[0].task;
       updateTask(data);
     });
@@ -86,7 +82,8 @@ function TaskComponent() {
   return (
     <div className={classes.majorContainer}>
       <div className={classes.contentHeader}>
-        <h2>{user.name}'s Todo List</h2>
+        <h2> Todo List</h2>
+        <h4>{user.email}</h4>
         <button className={classes.logoutButton} onClick={() => logOut()}>
           Logout
         </button>

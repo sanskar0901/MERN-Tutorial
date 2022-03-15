@@ -22,3 +22,8 @@
     border:none;
     border-radius: 10px;
 }
+
+a{
+    text-decoration: none;
+    color: brown;
+}

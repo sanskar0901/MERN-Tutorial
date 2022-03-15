@@ -30,7 +30,7 @@
     padding: 0px 10px;
 }
 .button{
-    background-color: rgb(255, 217, 0);
+    background-color: rgb(81, 255, 0);
     height:55px;
     padding: 0px 17px;
     cursor: pointer;
@@ -38,6 +38,7 @@
     border-radius: 10px;
     margin-left:10px;
     width: 100px;
+    font-weight: 700;
 }
 .logoutButton{
     background-color: rgba(255, 85, 85, 0.623);
@@ -48,9 +49,10 @@
     border-radius: 10px;
     margin-left:10px;
     width: 100px;
+    font-weight: 700
 }
 .markButton{
-    background-color: rgb(60, 187, 56);
+    background-color: rgb(146, 247, 179);
     height:25px;
     padding: 0px 17px;
     cursor: pointer;
@@ -58,15 +60,17 @@
     border-radius: 10px;
     margin-left:10px;
     width: 100px;
+    font-weight: 700;
 }
 .deleteButton{
-    background-color: rgb(255, 85, 85);
+    background-color: rgb(248, 125, 125);
     height:25px;
     padding: 0px 17px;
     cursor: pointer;
     border:none;
     border-radius: 10px;
     margin-left:10px;
+    font-weight: 700
 }
 .tasks{
     display: flex;

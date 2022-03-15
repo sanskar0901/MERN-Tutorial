@@ -3,7 +3,7 @@ let Task = require("../models/tasks.model");
 
 router.route("/:id").get((req, res) => {
   const userId = req.params.id;
-  Task.find({userId})
+  Task.find({ userId })
     .then((task) => {
       res.json(task);
     })
@@ -43,19 +43,19 @@ router.route("/edit/").post(async (req, res) => {
   var updatedTasks = [];
   if (method === "delete") {
     if (existingTasks) {
-      existingTasks.task.map((t) => {
+      existingTasks.task.map((tas) => {
         if (
-          JSON.stringify(t._id).replace('"', "").replace('"', "") !== taskId
+          JSON.stringify(tas._id).replace('"', "").replace('"', "") !== taskId
         ) {
-          updatedTasks.push(t);
+          updatedTasks.push(tas);
         }
       });
     }
   } else if (method === "update") {
     if (existingTasks) {
-      existingTasks.task.map((t) => {
+      existingTasks.task.map((tas) => {
         if (
-          JSON.stringify(t._id).replace('"', "").replace('"', "") === taskId
+          JSON.stringify(tas._id).replace('"', "").replace('"', "") === taskId
         ) {
           if (t.status === "done") {
             t.status = "not done";

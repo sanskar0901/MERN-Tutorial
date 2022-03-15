@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-import Navigations from './navigation';
-
+import Login from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import Task from "./components/Tasks/Task";
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from 'redux'
@@ -17,11 +19,6 @@ function App() {
 
   const { updateTask, setUser } = bindActionCreators(actionCreators, dispatch);
 
-
-  // useEffect(() => {
-  //   setUser("622c2fc18668dccdbf42ade1", "same", "email")
-  // }, [])
-
   useEffect(() => {
     console.log(state)
   }, [state])
@@ -34,7 +31,7 @@ function App() {
       task
     };
 
-    axios.post("http://localhost:5000/task/add", reqBody)
+    axios.post(" https://to69do.herokuapp.com/task/add", reqBody)
       .then((res) => {
         // console.log(res.data[0].task)
         const data = res.data[0].task;
@@ -43,9 +40,38 @@ function App() {
 
   }
 
+
+
+  const [isloggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (state.user != null) {
+      setIsLoggedIn(true)
+    } else {
+      setIsLoggedIn(false)
+    }
+  }, [state])
+
   return (
     <div className="App">
-      <Navigations />
+      <BrowserRouter>
+        <Routes>
+          {isloggedIn ? (
+            <>
+              <Route exact path="/" element={<Task />} />
+              <Route path="/login" element={<Navigate to="/" />} />
+              <Route path="/signup" element={<Navigate to="/" />} />
+            </>
+          ) : (
+            <>
+              <Route exact path="/" element={<Navigate to="/login" />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+            </>
+          )}
+          <Route path="*" element={<div>404 Not Found</div>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
